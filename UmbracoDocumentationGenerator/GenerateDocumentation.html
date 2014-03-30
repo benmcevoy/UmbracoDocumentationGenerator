@@ -11,49 +11,34 @@
 	<h2>Data Structures</h2>
 	<div class="table-of-contents">
 		<ul>
-					<li><a href="#Item">Item</a>
-					<li><a href="#Folder">Folder</a>
-					<li><a href="#LinkItem">Link Item</a>
-					<li><a href="#StockSummaryItem">Stock Summary Item</a>
-					<li><a href="#Page">Page</a>
-					<li><a href="#Article">Article</a>
-					<li><a href="#ArticleList">Article List</a>
-					<li><a href="#ContactFormPage">Contact Form Page</a>
-					<li><a href="#ContentPage">Content Page</a>
-					<li><a href="#DividendDetail">Dividend Detail</a>
-					<li><a href="#EarningsDetail">Earnings Detail</a>
-					<li><a href="#HomePage">Home Page</a>
-					<li><a href="#InvestmentNewsPage">Investment News Page</a>
-					<li><a href="#SearchPage">Search Page</a>
-					<li><a href="#StockDetail">Stock Detail</a>
+					<li><a href="#uBlogsyBaseDocType">[u Blogsy] [Base]</a>
+					<li><a href="#uBlogsyAuthor">[u Blogsy] Author</a>
+					<li><a href="#uBlogsyBaseContainer">[u Blogsy] [Base] Container</a>
+					<li><a href="#uBlogsyContainerAuthor">[u Blogsy] Container - Author</a>
+					<li><a href="#uBlogsyContainerEmailTemplate">[u Blogsy] Container - Email Template</a>
+					<li><a href="#uBlogsyContainerLabel">[u Blogsy] Container - Label</a>
+					<li><a href="#uBlogsyBasePage">[u Blogsy] [Base] Page</a>
+					<li><a href="#uBlogsyLanding">[u Blogsy] Landing</a>
+					<li><a href="#uBlogsyPage">[u Blogsy] Page</a>
+					<li><a href="#uBlogsyPost">[u Blogsy] Post</a>
+					<li><a href="#uBlogsySiteRoot">[u Blogsy] Site Root</a>
+					<li><a href="#uBlogsyLabel">[u Blogsy] Label</a>
+					<li><a href="#uBlogsyRSS">[u Blogsy] R S S</a>
 				</ul>
 	</div>
 	<div class="document-types">
-				<div class="document-type" id="Item">
-			<h3>Item</h3>
-			<p></p>
+				<div class="document-type" id="uBlogsyBaseDocType">
+			<h3>[u Blogsy] [Base]</h3>
+			<p>This document type exists to allow sorting and categorisation of sub-document types. Do not create content nodes using this document type!</p>
 			<dl>
-				<dt>Name:</dt><dd>Item&nbsp;</dd>
-				<dt>Alias:</dt><dd>Item&nbsp;</dd>
-				<dt>Description:</dt><dd>&nbsp;</dd>
+				<dt>Name:</dt><dd>[u Blogsy] [Base]&nbsp;</dd>
+				<dt>Alias:</dt><dd>uBlogsyBaseDocType&nbsp;</dd>
+				<dt>Description:</dt><dd>This document type exists to allow sorting and categorisation of sub-document types. Do not create content nodes using this document type!&nbsp;</dd>
 				<dt>Allow At Root:</dt><dd>False&nbsp;</dd>
 				<dt>Inherits from:</dt><dd><a href="#"><a/>&nbsp;</dd>
 				<dt>Allowed Templates:</dt><dd>&nbsp;</dd>
 				<dt>Default Template:</dt><dd>&nbsp;</dd>
 			</dl>
-					</div>
-				<div class="document-type" id="Folder">
-			<h3>Folder</h3>
-			<p></p>
-			<dl>
-				<dt>Name:</dt><dd>Folder&nbsp;</dd>
-				<dt>Alias:</dt><dd>Folder&nbsp;</dd>
-				<dt>Description:</dt><dd>&nbsp;</dd>
-				<dt>Allow At Root:</dt><dd>True&nbsp;</dd>
-				<dt>Inherits from:</dt><dd><a href="#Item">Item<a/>&nbsp;</dd>
-				<dt>Allowed Templates:</dt><dd>&nbsp;</dd>
-				<dt>Default Template:</dt><dd>&nbsp;</dd>
-			</dl>
 						<div class="fields">
 				<h4>Fields</h4>
 				<table>
@@ -67,89 +52,62 @@
 						<th>Type</th>
 					</tr>
 										<tr>
-						<td>Folder</td>
-						<td>Title</td>
-						<td>title</td>
 						<td></td>
-						<td>False</td>
-						<td></td>
-						<td>Single line text</td>
-					</tr>
-									</table>
-			</div>
-					</div>
-				<div class="document-type" id="LinkItem">
-			<h3>Link Item</h3>
-			<p></p>
-			<dl>
-				<dt>Name:</dt><dd>Link Item&nbsp;</dd>
-				<dt>Alias:</dt><dd>LinkItem&nbsp;</dd>
-				<dt>Description:</dt><dd>&nbsp;</dd>
-				<dt>Allow At Root:</dt><dd>False&nbsp;</dd>
-				<dt>Inherits from:</dt><dd><a href="#Item">Item<a/>&nbsp;</dd>
-				<dt>Allowed Templates:</dt><dd>&nbsp;</dd>
-				<dt>Default Template:</dt><dd>&nbsp;</dd>
-			</dl>
-						<div class="fields">
-				<h4>Fields</h4>
-				<table>
-					<tr>
-						<th>Group</th>
-						<th>Name</th>
-						<th>Alias</th>
-						<th>Description</th>
-						<th>Mandatory</th>
-						<th>Validation</th>
-						<th>Type</th>
-					</tr>
-										<tr>
-						<td>Link</td>
-						<td>Title</td>
-						<td>title</td>
-						<td></td>
-						<td>False</td>
-						<td></td>
-						<td>Single line text</td>
-					</tr>
-										<tr>
-						<td>Link</td>
-						<td>Local Link Url</td>
-						<td>localHref</td>
-						<td>A local link will take precedence over an external link.</td>
-						<td>False</td>
-						<td></td>
-						<td>Content picker</td>
-					</tr>
-										<tr>
-						<td>Link</td>
-						<td>External Link Url</td>
-						<td>externalHref</td>
-						<td></td>
-						<td>False</td>
-						<td></td>
-						<td>Single line text</td>
-					</tr>
-										<tr>
-						<td>Link</td>
-						<td>Open In New Window?</td>
-						<td>isNewTarget</td>
+						<td>Hide from navigation</td>
+						<td>umbracoNaviHide</td>
 						<td></td>
 						<td>False</td>
 						<td></td>
 						<td>True/false</td>
 					</tr>
+										<tr>
+						<td></td>
+						<td>302 Redirect</td>
+						<td>umbracoRedirect</td>
+						<td></td>
+						<td>False</td>
+						<td></td>
+						<td>Content picker</td>
+					</tr>
+										<tr>
+						<td></td>
+						<td>Invisible Redirect</td>
+						<td>umbracoInternalRedirectId</td>
+						<td></td>
+						<td>False</td>
+						<td></td>
+						<td>Content picker</td>
+					</tr>
+										<tr>
+						<td></td>
+						<td>Url Name Change</td>
+						<td>umbracoUrlName</td>
+						<td></td>
+						<td>False</td>
+						<td></td>
+						<td>Single line text</td>
+					</tr>
+										<tr>
+						<td></td>
+						<td>Url Alias</td>
+						<td>umbracoUrlAlias</td>
+						<td></td>
+						<td>False</td>
+						<td></td>
+						<td>Single line text</td>
+					</tr>
 									</table>
 			</div>
 					</div>
-				<div class="document-type" id="StockSummaryItem">
-			<h3>Stock Summary Item</h3>
+				<div class="document-type" id="uBlogsyAuthor">
+			<h3>[u Blogsy] Author</h3>
 			<p></p>
 			<dl>
-				<dt>Name:</dt><dd>Stock Summary Item&nbsp;</dd>
-				<dt>Alias:</dt><dd>StockSummaryItem&nbsp;</dd>
+				<dt>Name:</dt><dd>[u Blogsy] Author&nbsp;</dd>
+				<dt>Alias:</dt><dd>uBlogsyAuthor&nbsp;</dd>
 				<dt>Description:</dt><dd>&nbsp;</dd>
 				<dt>Allow At Root:</dt><dd>False&nbsp;</dd>
-				<dt>Inherits from:</dt><dd><a href="#Item">Item<a/>&nbsp;</dd>
+				<dt>Inherits from:</dt><dd><a href="#uBlogsyBaseDocType">uBlogsyBaseDocType<a/>&nbsp;</dd>
 				<dt>Allowed Templates:</dt><dd>&nbsp;</dd>
 				<dt>Default Template:</dt><dd>&nbsp;</dd>
 			</dl>
@@ -166,37 +124,89 @@
 						<th>Type</th>
 					</tr>
 										<tr>
-						<td>Summary</td>
-						<td>A S X Stock Code</td>
-						<td>stockCode</td>
+						<td>Author</td>
+						<td>Author Name</td>
+						<td>uBlogsyAuthorName</td>
 						<td></td>
 						<td>False</td>
 						<td></td>
 						<td>Single line text</td>
 					</tr>
 										<tr>
-						<td>Summary</td>
-						<td>Stock Summary</td>
-						<td>summary</td>
+						<td>Author</td>
+						<td>Gravatar Email</td>
+						<td>uBlogsyAuthorGravatarEmail</td>
 						<td></td>
 						<td>False</td>
 						<td></td>
-						<td>Rich text</td>
+						<td>Single line text</td>
 					</tr>
 									</table>
 			</div>
 					</div>
-				<div class="document-type" id="Page">
-			<h3>Page</h3>
+				<div class="document-type" id="uBlogsyBaseContainer">
+			<h3>[u Blogsy] [Base] Container</h3>
 			<p></p>
 			<dl>
-				<dt>Name:</dt><dd>Page&nbsp;</dd>
-				<dt>Alias:</dt><dd>Page&nbsp;</dd>
+				<dt>Name:</dt><dd>[u Blogsy] [Base] Container&nbsp;</dd>
+				<dt>Alias:</dt><dd>uBlogsyBaseContainer&nbsp;</dd>
 				<dt>Description:</dt><dd>&nbsp;</dd>
 				<dt>Allow At Root:</dt><dd>False&nbsp;</dd>
-				<dt>Inherits from:</dt><dd><a href="#"><a/>&nbsp;</dd>
-				<dt>Allowed Templates:</dt><dd>Site&nbsp;</dd>
-				<dt>Default Template:</dt><dd>Site&nbsp;</dd>
+				<dt>Inherits from:</dt><dd><a href="#uBlogsyBaseDocType">uBlogsyBaseDocType<a/>&nbsp;</dd>
+				<dt>Allowed Templates:</dt><dd>&nbsp;</dd>
+				<dt>Default Template:</dt><dd>&nbsp;</dd>
+			</dl>
+					</div>
+				<div class="document-type" id="uBlogsyContainerAuthor">
+			<h3>[u Blogsy] Container - Author</h3>
+			<p></p>
+			<dl>
+				<dt>Name:</dt><dd>[u Blogsy] Container - Author&nbsp;</dd>
+				<dt>Alias:</dt><dd>uBlogsyContainerAuthor&nbsp;</dd>
+				<dt>Description:</dt><dd>&nbsp;</dd>
+				<dt>Allow At Root:</dt><dd>False&nbsp;</dd>
+				<dt>Inherits from:</dt><dd><a href="#uBlogsyBaseContainer">uBlogsyBaseContainer<a/>&nbsp;</dd>
+				<dt>Allowed Templates:</dt><dd>&nbsp;</dd>
+				<dt>Default Template:</dt><dd>&nbsp;</dd>
+			</dl>
+					</div>
+				<div class="document-type" id="uBlogsyContainerEmailTemplate">
+			<h3>[u Blogsy] Container - Email Template</h3>
+			<p></p>
+			<dl>
+				<dt>Name:</dt><dd>[u Blogsy] Container - Email Template&nbsp;</dd>
+				<dt>Alias:</dt><dd>uBlogsyContainerEmailTemplate&nbsp;</dd>
+				<dt>Description:</dt><dd>&nbsp;</dd>
+				<dt>Allow At Root:</dt><dd>False&nbsp;</dd>
+				<dt>Inherits from:</dt><dd><a href="#uBlogsyBaseContainer">uBlogsyBaseContainer<a/>&nbsp;</dd>
+				<dt>Allowed Templates:</dt><dd>&nbsp;</dd>
+				<dt>Default Template:</dt><dd>&nbsp;</dd>
+			</dl>
+					</div>
+				<div class="document-type" id="uBlogsyContainerLabel">
+			<h3>[u Blogsy] Container - Label</h3>
+			<p></p>
+			<dl>
+				<dt>Name:</dt><dd>[u Blogsy] Container - Label&nbsp;</dd>
+				<dt>Alias:</dt><dd>uBlogsyContainerLabel&nbsp;</dd>
+				<dt>Description:</dt><dd>&nbsp;</dd>
+				<dt>Allow At Root:</dt><dd>False&nbsp;</dd>
+				<dt>Inherits from:</dt><dd><a href="#uBlogsyBaseContainer">uBlogsyBaseContainer<a/>&nbsp;</dd>
+				<dt>Allowed Templates:</dt><dd>&nbsp;</dd>
+				<dt>Default Template:</dt><dd>&nbsp;</dd>
+			</dl>
+					</div>
+				<div class="document-type" id="uBlogsyBasePage">
+			<h3>[u Blogsy] [Base] Page</h3>
+			<p>This document type exists to allow sorting and categorisation of sub-document types. Do not create content nodes using this document type!</p>
+			<dl>
+				<dt>Name:</dt><dd>[u Blogsy] [Base] Page&nbsp;</dd>
+				<dt>Alias:</dt><dd>uBlogsyBasePage&nbsp;</dd>
+				<dt>Description:</dt><dd>This document type exists to allow sorting and categorisation of sub-document types. Do not create content nodes using this document type!&nbsp;</dd>
+				<dt>Allow At Root:</dt><dd>False&nbsp;</dd>
+				<dt>Inherits from:</dt><dd><a href="#uBlogsyBaseDocType">uBlogsyBaseDocType<a/>&nbsp;</dd>
+				<dt>Allowed Templates:</dt><dd>&nbsp;</dd>
+				<dt>Default Template:</dt><dd>&nbsp;</dd>
 			</dl>
 						<div class="fields">
 				<h4>Fields</h4>
@@ -213,7 +223,7 @@
 										<tr>
 						<td>Content</td>
 						<td>Title</td>
-						<td>title</td>
+						<td>uBlogsyContentTitle</td>
 						<td></td>
 						<td>False</td>
 						<td></td>
@@ -221,8 +231,8 @@
 					</tr>
 										<tr>
 						<td>Content</td>
-						<td>Description</td>
-						<td>description</td>
+						<td>Summary</td>
+						<td>uBlogsyContentSummary</td>
 						<td></td>
 						<td>False</td>
 						<td></td>
@@ -230,17 +240,44 @@
 					</tr>
 										<tr>
 						<td>Content</td>
-						<td>Content</td>
-						<td>content</td>
+						<td>Body</td>
+						<td>uBlogsyContentBody</td>
 						<td></td>
 						<td>False</td>
 						<td></td>
 						<td>Rich text</td>
 					</tr>
 										<tr>
-						<td>Content</td>
+						<td>SEO</td>
+						<td>Seo Title</td>
+						<td>uBlogsySeoTitle</td>
+						<td></td>
+						<td>False</td>
+						<td></td>
+						<td>Single line text</td>
+					</tr>
+										<tr>
+						<td>SEO</td>
 						<td>Keywords</td>
-						<td>keywords</td>
+						<td>uBlogsySeoKeywords</td>
+						<td>Used for meta keywords. When this is empty, the title of the page is used.</td>
+						<td>False</td>
+						<td></td>
+						<td>Single line text</td>
+					</tr>
+										<tr>
+						<td>SEO</td>
+						<td>Description</td>
+						<td>uBlogsySeoDescription</td>
+						<td>Used for meta description. When this is empty, an exerpt of the body text of the page is used.</td>
+						<td>False</td>
+						<td></td>
+						<td>Multi line text</td>
+					</tr>
+										<tr>
+						<td>Navigation</td>
+						<td>Navigation Title</td>
+						<td>uBlogsyNavigationTitle</td>
 						<td></td>
 						<td>False</td>
 						<td></td>
@@ -249,30 +286,17 @@
 									</table>
 			</div>
 					</div>
-				<div class="document-type" id="Article">
-			<h3>Article</h3>
-			<p></p>
+				<div class="document-type" id="uBlogsyLanding">
+			<h3>[u Blogsy] Landing</h3>
+			<p>This is the root of your blog. It is required. There can be multiple of these. But they cannot be nested under eachother.</p>
 			<dl>
-				<dt>Name:</dt><dd>Article&nbsp;</dd>
-				<dt>Alias:</dt><dd>Article&nbsp;</dd>
-				<dt>Description:</dt><dd>&nbsp;</dd>
+				<dt>Name:</dt><dd>[u Blogsy] Landing&nbsp;</dd>
+				<dt>Alias:</dt><dd>uBlogsyLanding&nbsp;</dd>
+				<dt>Description:</dt><dd>This is the root of your blog. It is required. There can be multiple of these. But they cannot be nested under eachother.&nbsp;</dd>
 				<dt>Allow At Root:</dt><dd>False&nbsp;</dd>
-				<dt>Inherits from:</dt><dd><a href="#Page">Page<a/>&nbsp;</dd>
-				<dt>Allowed Templates:</dt><dd>Article&nbsp;</dd>
-				<dt>Default Template:</dt><dd>Article&nbsp;</dd>
-			</dl>
-					</div>
-				<div class="document-type" id="ArticleList">
-			<h3>Article List</h3>
-			<p></p>
-			<dl>
-				<dt>Name:</dt><dd>Article List&nbsp;</dd>
-				<dt>Alias:</dt><dd>ArticleList&nbsp;</dd>
-				<dt>Description:</dt><dd>&nbsp;</dd>
-				<dt>Allow At Root:</dt><dd>False&nbsp;</dd>
-				<dt>Inherits from:</dt><dd><a href="#Page">Page<a/>&nbsp;</dd>
-				<dt>Allowed Templates:</dt><dd>ArticleList&nbsp;</dd>
-				<dt>Default Template:</dt><dd>ArticleList&nbsp;</dd>
+				<dt>Inherits from:</dt><dd><a href="#uBlogsyBasePage">uBlogsyBasePage<a/>&nbsp;</dd>
+				<dt>Allowed Templates:</dt><dd>uBlogsyLanding&nbsp;</dd>
+				<dt>Default Template:</dt><dd>uBlogsyLanding&nbsp;</dd>
 			</dl>
 						<div class="fields">
 				<h4>Fields</h4>
@@ -287,80 +311,86 @@
 						<th>Type</th>
 					</tr>
 										<tr>
-						<td>Content</td>
-						<td>Tag</td>
-						<td>tag</td>
-						<td></td>
+						<td>General Settings</td>
+						<td>Default Author</td>
+						<td>uBlogsyGeneralDefaultAuthor</td>
+						<td>This author is used when none are defined in a post.</td>
 						<td>False</td>
 						<td></td>
-						<td>Single line text</td>
+						<td>unknown type: 7E062C13-7C41-4AD9-B389-41D88AEEF87C</td>
+					</tr>
+										<tr>
+						<td>General Settings</td>
+						<td>Use Summary On Landing</td>
+						<td>uBlogsyGeneralUseSummary</td>
+						<td>Select this to use post summaries on the main page, instead of whole posts.
+</td>
+						<td>False</td>
+						<td></td>
+						<td>True/false</td>
+					</tr>
+										<tr>
+						<td>General Settings</td>
+						<td>Show Social Media Links</td>
+						<td>uBlogsyGeneralShowSocialMedia</td>
+						<td>Select this to show social media sharing links under each post.</td>
+						<td>False</td>
+						<td></td>
+						<td>True/false</td>
+					</tr>
+										<tr>
+						<td>General Settings</td>
+						<td>Use Title As Node Name</td>
+						<td>uBlogsyGeneralUseTitleAsNodeName</td>
+						<td>Deselect this if you want to have a post title which is different to your post's node name.
+
+eg. If you want your title to be "My title" but you want the post url to be /posts/2011/01/my-cool-title/ instead of /posts/2011/01/my-title/
+
+Selected by default.</td>
+						<td>False</td>
+						<td></td>
+						<td>True/false</td>
+					</tr>
+										<tr>
+						<td>Blog Roll</td>
+						<td>Blog Roll Links</td>
+						<td>uBlogsyBlogLinks</td>
+						<td>A list of blogs you want to follow. Make sure it's one per line.
+
+e.g 
+http://feeds.feedburner.com/midcodecrisis
+http://feeds.feedburner.com/umbracoblog</td>
+						<td>False</td>
+						<td></td>
+						<td>Multi line text</td>
 					</tr>
 									</table>
 			</div>
 					</div>
-				<div class="document-type" id="ContactFormPage">
-			<h3>Contact Form Page</h3>
-			<p></p>
+				<div class="document-type" id="uBlogsyPage">
+			<h3>[u Blogsy] Page</h3>
+			<p>This document type is for simple pages.</p>
 			<dl>
-				<dt>Name:</dt><dd>Contact Form Page&nbsp;</dd>
-				<dt>Alias:</dt><dd>ContactFormPage&nbsp;</dd>
-				<dt>Description:</dt><dd>&nbsp;</dd>
+				<dt>Name:</dt><dd>[u Blogsy] Page&nbsp;</dd>
+				<dt>Alias:</dt><dd>uBlogsyPage&nbsp;</dd>
+				<dt>Description:</dt><dd>This document type is for simple pages.&nbsp;</dd>
 				<dt>Allow At Root:</dt><dd>False&nbsp;</dd>
-				<dt>Inherits from:</dt><dd><a href="#Page">Page<a/>&nbsp;</dd>
-				<dt>Allowed Templates:</dt><dd>ContactUsForm&nbsp;</dd>
-				<dt>Default Template:</dt><dd>ContactUsForm&nbsp;</dd>
+				<dt>Inherits from:</dt><dd><a href="#uBlogsyBasePage">uBlogsyBasePage<a/>&nbsp;</dd>
+				<dt>Allowed Templates:</dt><dd>uBlogsyPage&nbsp;</dd>
+				<dt>Default Template:</dt><dd>uBlogsyPage&nbsp;</dd>
 			</dl>
 					</div>
-				<div class="document-type" id="ContentPage">
-			<h3>Content Page</h3>
-			<p></p>
+				<div class="document-type" id="uBlogsyPost">
+			<h3>[u Blogsy] Post</h3>
+			<p>This document type is for your blog posts. Put these posts directly under the year folder or under a month folder.</p>
 			<dl>
-				<dt>Name:</dt><dd>Content Page&nbsp;</dd>
-				<dt>Alias:</dt><dd>ContentPage&nbsp;</dd>
-				<dt>Description:</dt><dd>&nbsp;</dd>
+				<dt>Name:</dt><dd>[u Blogsy] Post&nbsp;</dd>
+				<dt>Alias:</dt><dd>uBlogsyPost&nbsp;</dd>
+				<dt>Description:</dt><dd>This document type is for your blog posts. Put these posts directly under the year folder or under a month folder.&nbsp;</dd>
 				<dt>Allow At Root:</dt><dd>False&nbsp;</dd>
-				<dt>Inherits from:</dt><dd><a href="#Page">Page<a/>&nbsp;</dd>
-				<dt>Allowed Templates:</dt><dd>Content&nbsp;</dd>
-				<dt>Default Template:</dt><dd>Content&nbsp;</dd>
-			</dl>
-					</div>
-				<div class="document-type" id="DividendDetail">
-			<h3>Dividend Detail</h3>
-			<p></p>
-			<dl>
-				<dt>Name:</dt><dd>Dividend Detail&nbsp;</dd>
-				<dt>Alias:</dt><dd>DividendDetail&nbsp;</dd>
-				<dt>Description:</dt><dd>&nbsp;</dd>
-				<dt>Allow At Root:</dt><dd>False&nbsp;</dd>
-				<dt>Inherits from:</dt><dd><a href="#Page">Page<a/>&nbsp;</dd>
-				<dt>Allowed Templates:</dt><dd>DividendDetail&nbsp;</dd>
-				<dt>Default Template:</dt><dd>DividendDetail&nbsp;</dd>
-			</dl>
-					</div>
-				<div class="document-type" id="EarningsDetail">
-			<h3>Earnings Detail</h3>
-			<p></p>
-			<dl>
-				<dt>Name:</dt><dd>Earnings Detail&nbsp;</dd>
-				<dt>Alias:</dt><dd>EarningsDetail&nbsp;</dd>
-				<dt>Description:</dt><dd>&nbsp;</dd>
-				<dt>Allow At Root:</dt><dd>False&nbsp;</dd>
-				<dt>Inherits from:</dt><dd><a href="#Page">Page<a/>&nbsp;</dd>
-				<dt>Allowed Templates:</dt><dd>EarningsDetail&nbsp;</dd>
-				<dt>Default Template:</dt><dd>EarningsDetail&nbsp;</dd>
-			</dl>
-					</div>
-				<div class="document-type" id="HomePage">
-			<h3>Home Page</h3>
-			<p></p>
-			<dl>
-				<dt>Name:</dt><dd>Home Page&nbsp;</dd>
-				<dt>Alias:</dt><dd>HomePage&nbsp;</dd>
-				<dt>Description:</dt><dd>&nbsp;</dd>
-				<dt>Allow At Root:</dt><dd>True&nbsp;</dd>
-				<dt>Inherits from:</dt><dd><a href="#Page">Page<a/>&nbsp;</dd>
-				<dt>Allowed Templates:</dt><dd>Home&nbsp;</dd>
-				<dt>Default Template:</dt><dd>Home&nbsp;</dd>
+				<dt>Inherits from:</dt><dd><a href="#uBlogsyBasePage">uBlogsyBasePage<a/>&nbsp;</dd>
+				<dt>Allowed Templates:</dt><dd>uBlogsyPost&nbsp;</dd>
+				<dt>Default Template:</dt><dd>uBlogsyPost&nbsp;</dd>
 			</dl>
 						<div class="fields">
 				<h4>Fields</h4>
@@ -375,64 +405,167 @@
 						<th>Type</th>
 					</tr>
 										<tr>
-						<td>Hero</td>
-						<td>Hero Caption</td>
-						<td>heroCaption</td>
-						<td></td>
-						<td>False</td>
-						<td></td>
-						<td>Single line text</td>
-					</tr>
-										<tr>
-						<td>Hero</td>
-						<td>Hero Image</td>
-						<td>heroImage</td>
+						<td>Post Info</td>
+						<td>Main Image</td>
+						<td>uBlogsyPostImage</td>
 						<td></td>
 						<td>False</td>
 						<td></td>
 						<td>Media picker</td>
 					</tr>
+										<tr>
+						<td>Post Info</td>
+						<td>Author</td>
+						<td>uBlogsyPostAuthor</td>
+						<td>There can be multiple authors separated by ",".</td>
+						<td>False</td>
+						<td></td>
+						<td>unknown type: 7E062C13-7C41-4AD9-B389-41D88AEEF87C</td>
+					</tr>
+										<tr>
+						<td>Post Info</td>
+						<td>Post Date</td>
+						<td>uBlogsyPostDate</td>
+						<td></td>
+						<td>False</td>
+						<td></td>
+						<td>Date picker with time</td>
+					</tr>
+										<tr>
+						<td>Post Info</td>
+						<td>Tags</td>
+						<td>uBlogsyPostTags</td>
+						<td>Remember to click save (or publish)!</td>
+						<td>False</td>
+						<td></td>
+						<td>unknown type: D15E1281-E456-4B24-AA86-1DDA3E4299D5</td>
+					</tr>
+										<tr>
+						<td>Post Info</td>
+						<td>Categories</td>
+						<td>uBlogsyPostLabels</td>
+						<td></td>
+						<td>False</td>
+						<td></td>
+						<td>unknown type: 7E062C13-7C41-4AD9-B389-41D88AEEF87C</td>
+					</tr>
+										<tr>
+						<td>Post Info</td>
+						<td>Disable Comments</td>
+						<td>uBlogsyPostDisableComments</td>
+						<td>Allows you to disable comments to this post. Note that comments that already exist will remain viewable.</td>
+						<td>False</td>
+						<td></td>
+						<td>True/false</td>
+					</tr>
 									</table>
 			</div>
 					</div>
-				<div class="document-type" id="InvestmentNewsPage">
-			<h3>Investment News Page</h3>
+				<div class="document-type" id="uBlogsySiteRoot">
+			<h3>[u Blogsy] Site Root</h3>
 			<p></p>
 			<dl>
-				<dt>Name:</dt><dd>Investment News Page&nbsp;</dd>
-				<dt>Alias:</dt><dd>InvestmentNewsPage&nbsp;</dd>
+				<dt>Name:</dt><dd>[u Blogsy] Site Root&nbsp;</dd>
+				<dt>Alias:</dt><dd>uBlogsySiteRoot&nbsp;</dd>
 				<dt>Description:</dt><dd>&nbsp;</dd>
-				<dt>Allow At Root:</dt><dd>False&nbsp;</dd>
-				<dt>Inherits from:</dt><dd><a href="#Page">Page<a/>&nbsp;</dd>
-				<dt>Allowed Templates:</dt><dd>InvestmentNews&nbsp;</dd>
-				<dt>Default Template:</dt><dd>InvestmentNews&nbsp;</dd>
+				<dt>Allow At Root:</dt><dd>True&nbsp;</dd>
+				<dt>Inherits from:</dt><dd><a href="#uBlogsyBasePage">uBlogsyBasePage<a/>&nbsp;</dd>
+				<dt>Allowed Templates:</dt><dd>uBlogsySiteHome&nbsp;</dd>
+				<dt>Default Template:</dt><dd>uBlogsySiteHome&nbsp;</dd>
 			</dl>
 					</div>
-				<div class="document-type" id="SearchPage">
-			<h3>Search Page</h3>
+				<div class="document-type" id="uBlogsyLabel">
+			<h3>[u Blogsy] Label</h3>
 			<p></p>
 			<dl>
-				<dt>Name:</dt><dd>Search Page&nbsp;</dd>
-				<dt>Alias:</dt><dd>SearchPage&nbsp;</dd>
+				<dt>Name:</dt><dd>[u Blogsy] Label&nbsp;</dd>
+				<dt>Alias:</dt><dd>uBlogsyLabel&nbsp;</dd>
 				<dt>Description:</dt><dd>&nbsp;</dd>
 				<dt>Allow At Root:</dt><dd>False&nbsp;</dd>
-				<dt>Inherits from:</dt><dd><a href="#Page">Page<a/>&nbsp;</dd>
-				<dt>Allowed Templates:</dt><dd>Search&nbsp;</dd>
-				<dt>Default Template:</dt><dd>Search&nbsp;</dd>
+				<dt>Inherits from:</dt><dd><a href="#uBlogsyBaseDocType">uBlogsyBaseDocType<a/>&nbsp;</dd>
+				<dt>Allowed Templates:</dt><dd>&nbsp;</dd>
+				<dt>Default Template:</dt><dd>&nbsp;</dd>
 			</dl>
+						<div class="fields">
+				<h4>Fields</h4>
+				<table>
+					<tr>
+						<th>Group</th>
+						<th>Name</th>
+						<th>Alias</th>
+						<th>Description</th>
+						<th>Mandatory</th>
+						<th>Validation</th>
+						<th>Type</th>
+					</tr>
+										<tr>
+						<td>Category</td>
+						<td>Label Name</td>
+						<td>uBlogsyLabelName</td>
+						<td></td>
+						<td>False</td>
+						<td></td>
+						<td>Single line text</td>
+					</tr>
+									</table>
+			</div>
 					</div>
-				<div class="document-type" id="StockDetail">
-			<h3>Stock Detail</h3>
-			<p></p>
+				<div class="document-type" id="uBlogsyRSS">
+			<h3>[u Blogsy] R S S</h3>
+			<p>This document type exists only for an RSS feed. There should only be one of these.</p>
 			<dl>
-				<dt>Name:</dt><dd>Stock Detail&nbsp;</dd>
-				<dt>Alias:</dt><dd>StockDetail&nbsp;</dd>
-				<dt>Description:</dt><dd>&nbsp;</dd>
+				<dt>Name:</dt><dd>[u Blogsy] R S S&nbsp;</dd>
+				<dt>Alias:</dt><dd>uBlogsyRSS&nbsp;</dd>
+				<dt>Description:</dt><dd>This document type exists only for an RSS feed. There should only be one of these.&nbsp;</dd>
 				<dt>Allow At Root:</dt><dd>False&nbsp;</dd>
-				<dt>Inherits from:</dt><dd><a href="#Page">Page<a/>&nbsp;</dd>
-				<dt>Allowed Templates:</dt><dd>StockDetail&nbsp;</dd>
-				<dt>Default Template:</dt><dd>StockDetail&nbsp;</dd>
+				<dt>Inherits from:</dt><dd><a href="#uBlogsyBaseDocType">uBlogsyBaseDocType<a/>&nbsp;</dd>
+				<dt>Allowed Templates:</dt><dd>uBlogsyRss&nbsp;</dd>
+				<dt>Default Template:</dt><dd>uBlogsyRss&nbsp;</dd>
 			</dl>
+						<div class="fields">
+				<h4>Fields</h4>
+				<table>
+					<tr>
+						<th>Group</th>
+						<th>Name</th>
+						<th>Alias</th>
+						<th>Description</th>
+						<th>Mandatory</th>
+						<th>Validation</th>
+						<th>Type</th>
+					</tr>
+										<tr>
+						<td>RSS Feed</td>
+						<td>Title</td>
+						<td>uBlogsyRssTitle</td>
+						<td>The title which is shown in your RSS feed</td>
+						<td>False</td>
+						<td></td>
+						<td>Single line text</td>
+					</tr>
+										<tr>
+						<td>RSS Feed</td>
+						<td>Description</td>
+						<td>uBlogsyRssDescription</td>
+						<td>The description of your RSS feed</td>
+						<td>False</td>
+						<td></td>
+						<td>Multi line text</td>
+					</tr>
+										<tr>
+						<td>RSS Feed</td>
+						<td>Copyright</td>
+						<td>uBlogsyRssCopyright</td>
+						<td>Copyright information which is shown in your RSS feed.
+
+e.g Mid-code Crisis
+</td>
+						<td>False</td>
+						<td></td>
+						<td>Single line text</td>
+					</tr>
+									</table>
+			</div>
 					</div>
 			</div>
 </body>

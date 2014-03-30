@@ -44,27 +44,25 @@
     <None Include="GenerateDocumentation.t4" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="uSync\DocumentType\uBlogsyBaseDocType\def.config" />
+    <None Include="uSync\DocumentType\uBlogsyBaseDocType\uBlogsyAuthor\def.config" />
+    <None Include="uSync\DocumentType\uBlogsyBaseDocType\uBlogsyBaseContainer\def.config" />
+    <None Include="uSync\DocumentType\uBlogsyBaseDocType\uBlogsyBaseContainer\uBlogsyContainerAuthor\def.config" />
+    <None Include="uSync\DocumentType\uBlogsyBaseDocType\uBlogsyBaseContainer\uBlogsyContainerEmailTemplate\def.config" />
+    <None Include="uSync\DocumentType\uBlogsyBaseDocType\uBlogsyBaseContainer\uBlogsyContainerLabel\def.config" />
+    <None Include="uSync\DocumentType\uBlogsyBaseDocType\uBlogsyBasePage\def.config" />
+    <None Include="uSync\DocumentType\uBlogsyBaseDocType\uBlogsyBasePage\uBlogsyLanding\def.config" />
+    <None Include="uSync\DocumentType\uBlogsyBaseDocType\uBlogsyBasePage\uBlogsyPage\def.config" />
+    <None Include="uSync\DocumentType\uBlogsyBaseDocType\uBlogsyBasePage\uBlogsyPost\def.config" />
+    <None Include="uSync\DocumentType\uBlogsyBaseDocType\uBlogsyBasePage\uBlogsySiteRoot\def.config" />
+    <None Include="uSync\DocumentType\uBlogsyBaseDocType\uBlogsyLabel\def.config" />
+    <None Include="uSync\DocumentType\uBlogsyBaseDocType\uBlogsyRSS\def.config" />
   </ItemGroup>
   <ItemGroup>
     <None Include="GenerateDocumentation.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>GenerateDocumentation.html</LastGenOutput>
     </None>
-    <None Include="uSync\DocumentType\Item\def.config" />
-    <None Include="uSync\DocumentType\Item\Folder\def.config" />
-    <None Include="uSync\DocumentType\Item\LinkItem\def.config" />
-    <None Include="uSync\DocumentType\Item\StockSummaryItem\def.config" />
-    <None Include="uSync\DocumentType\Page\ArticleList\def.config" />
-    <None Include="uSync\DocumentType\Page\Article\def.config" />
-    <None Include="uSync\DocumentType\Page\ContactFormPage\def.config" />
-    <None Include="uSync\DocumentType\Page\ContentPage\def.config" />
-    <None Include="uSync\DocumentType\Page\def.config" />
-    <None Include="uSync\DocumentType\Page\DividendDetail\def.config" />
-    <None Include="uSync\DocumentType\Page\EarningsDetail\def.config" />
-    <None Include="uSync\DocumentType\Page\HomePage\def.config" />
-    <None Include="uSync\DocumentType\Page\InvestmentNewsPage\def.config" />
-    <None Include="uSync\DocumentType\Page\SearchPage\def.config" />
-    <None Include="uSync\DocumentType\Page\StockDetail\def.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="GenerateDocumentation.html">
