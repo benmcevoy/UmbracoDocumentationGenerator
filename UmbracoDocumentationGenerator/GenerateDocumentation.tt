@@ -1,0 +1,71 @@
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ include file="GenerateDocumentation.t4" #>
+<#@ output extension=".html" #>
+<# 
+	var basePath = Host.ResolvePath(@"uSync\DocumentType"); 
+	Init(basePath); 
+#>
+<html>
+<head>
+	<title></title>
+	<style>
+		dt { float: left; width: 200px; font-weight: bold;}	
+		.document-type { margin-bottom: 50px; }
+	</style>
+<head>
+<body>
+	<h2>Data Structures</h2>
+	<div class="table-of-contents">
+		<ul>
+		<# foreach (var documentType in DocumentTypes) { #>
+			<li><a href="#<#= documentType.Alias#>"><#= documentType.Name#></a>
+		<# } #>
+		</ul>
+	</div>
+	<div class="document-types">
+		<# foreach (var documentType in DocumentTypes) { #>
+		<div class="document-type" id="<#= documentType.Alias #>">
+			<h3><#= documentType.Name #></h3>
+			<p><#= documentType.Description #></p>
+			<dl>
+				<dt>Name:</dt><dd><#= documentType.Name #>&nbsp;</dd>
+				<dt>Alias:</dt><dd><#= documentType.Alias #>&nbsp;</dd>
+				<dt>Description:</dt><dd><#= documentType.Description #>&nbsp;</dd>
+				<dt>Allow At Root:</dt><dd><#= documentType.IsAllowedAtRoot #>&nbsp;</dd>
+				<dt>Inherits from:</dt><dd><a href="#<#= documentType.Parent #>"><#= documentType.Parent #><a/>&nbsp;</dd>
+				<dt>Allowed Templates:</dt><dd><#= documentType.GetTemplates() #>&nbsp;</dd>
+				<dt>Default Template:</dt><dd><#= documentType.DefaultTemplate #>&nbsp;</dd>
+			</dl>
+			<# if(documentType.Fields.Any()) { #>
+			<div class="fields">
+				<h4>Fields</h4>
+				<table>
+					<tr>
+						<th>Group</th>
+						<th>Name</th>
+						<th>Alias</th>
+						<th>Description</th>
+						<th>Mandatory</th>
+						<th>Validation</th>
+						<th>Type</th>
+					</tr>
+					<# foreach (var field in documentType.Fields) { #>
+					<tr>
+						<td><#= field.Tab #></td>
+						<td><#= field.Name #></td>
+						<td><#= field.Alias #></td>
+						<td><#= field.Description #></td>
+						<td><#= field.IsMandatory #></td>
+						<td><#= field.Validation #></td>
+						<td><#= field.DataType #></td>
+					</tr>
+					<# } #>
+				</table>
+			</div>
+			<# } #>
+		</div>
+		<# } #>
+	</div>
+</body>
+</html>

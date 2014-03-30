@@ -1,0 +1,177 @@
+﻿<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" #>
+<#@ assembly name="System.Xml.Linq, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" #>
+<#@ import namespace="System.Diagnostics" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Text.RegularExpressions" #>
+<#@ import namespace="System.Threading" #>
+<#@ import namespace="System.Xml.Linq" #>
+<#@ import namespace="System.Xml.XPath" #>
+<#+
+    public List<DocumentType> DocumentTypes { get; set; }
+
+    private string _documentTypeFileType = ".config";
+
+    private Dictionary<string, string> _wellKnowTypes= new Dictionary<string, string>
+    {
+        {"38B352C1-E9F8-4FD8-9324-9A2EAB06D97A", "True/false" },
+        {"1413AFCB-D19A-4173-8E9A-68288D2A73B8", "Numeric" },
+        {"5032A6E6-69E3-491D-BB28-CD31CD11086C", "Upload" }, 
+        {"B6FB1622-AFA5-4BBF-A3CC-D9672A442222", "Date picker with time" },
+        {"F8D60F68-EC59-4974-B43B-C46EB5677985", "Approved Color" },
+        {"CCCD4AE9-F399-4ED2-8038-2E88D19E810C", "Folder browser" },
+        {"23E93522-3200-44E2-9F29-E61A6FCBB79A", "Date picker" },
+        {"158AA029-24ED-4948-939E-C3DA209E5FBA", "Content picker" },
+        {"EAD69342-F06D-4253-83AC-28000225583B", "Media picker" },
+        {"474FCFF8-9D2D-11DE-ABC6-AD7A56D89593", "Macro container" },
+        {"EC15C1E5-9D90-422A-AA52-4F7622C63BEA", "Single line text" },
+        {"5E9B75AE-FACE-41C8-B47E-5F4B0FD82F83", "Rich text" },
+        {"67DB8357-EF57-493E-91AC-936D305E0F2A", "Multi line text"}
+    };
+
+    public void Init(string basePath)
+    {
+        DocumentTypes = new List<DocumentType>();
+
+        // TODO: get a proper heirarchy going on
+        ProcessDirectory(basePath);
+    }
+
+    private void ProcessDirectory(string targetDirectory) 
+    {
+        var fileEntries = Directory.GetFiles(targetDirectory);
+        foreach(var fileName in fileEntries) ProcessFile(fileName);
+
+        var subdirectoryEntries = Directory.GetDirectories(targetDirectory);
+        foreach(var subdirectory in subdirectoryEntries) ProcessDirectory(subdirectory);
+    }
+
+    private void ProcessFile(string path)
+    {
+        if (!path.EndsWith(_documentTypeFileType)) return;
+
+        var docType = XDocument.Parse(File.ReadAllText(path));
+
+        DocumentTypes.Add(new DocumentType
+        {
+            Name = SplitCamelCase(docType.XPathSelectElement("//DocumentType/Info/Name").Value),
+            Alias = docType.XPathSelectElement("//DocumentType/Info/Alias").Value,
+            Description = docType.XPathSelectElement("//DocumentType/Info/Description").Value,
+            Parent = GetParent(docType),
+            DefaultTemplate = docType.XPathSelectElement("//DocumentType/Info/DefaultTemplate").Value,
+            IsAllowedAtRoot = GetIsAllowedAtRoot(docType),
+            Templates = GetTemplates(docType),
+            Fields = GetFields(docType)
+        });
+    }
+
+    private List<Field> GetFields(XDocument docType)
+    {
+        var element = docType.XPathSelectElement("//DocumentType/GenericProperties");
+
+        if (!element.HasElements) return new List<Field>();;
+
+        return element
+            .Descendants("GenericProperty")
+            .Select(field => new Field
+            {
+                Name = SplitCamelCase(field.Element("Name").Value),
+                Alias = field.Element("Alias").Value,
+                Description = field.Element("Description").Value,
+                Validation = field.Element("Validation").Value,
+                DataType = GetDataType(field),
+                Tab = field.Element("Tab").Value,
+            }).ToList();
+    }
+
+    private string GetDataType(XElement field)
+    {
+        var key = field.Element("Type").Value.ToUpperInvariant();
+
+        if(_wellKnowTypes.ContainsKey(key))return _wellKnowTypes[key];
+
+        return "unknown type: " + key;
+    }
+
+    private string GetParent(XDocument docType)
+    {
+        var element = docType.XPathSelectElement("//DocumentType/Info/Master");
+        return element == null ? "" : element.Value;
+    }
+
+    private bool GetIsAllowedAtRoot(XDocument docType)
+    {
+        var element = docType.XPathSelectElement("//DocumentType/Info/AllowAtRoot");
+        return element.Value == "True";
+    }
+
+    private string[] GetTemplates(XDocument docType)
+    {
+        var element = docType.XPathSelectElement("//DocumentType/Info/AllowedTemplates");
+
+        if (!element.HasElements) return new string[] {};
+
+        return element
+                .Descendants("Template")
+                .Select(template => template.Value)
+                .ToArray();
+    }
+
+    private string SplitCamelCase(string value)
+    {
+        return Regex.Replace(value, "(\\B[A-Z])", " $1");
+    }
+
+    public class DocumentType
+    {
+        public DocumentType()
+        {
+            Templates = new string[] { }; 
+            Fields = new List<Field>();
+            Name = "";
+            Alias = "";
+            DefaultTemplate = "";
+            Description = "";
+            Parent = "";
+        }
+
+        public string GetTemplates()
+        {
+            return string.Join(", ", Templates);
+        }
+
+        public string Name { get; set; }
+        public string Alias { get; set; }
+        public string Description { get; set; }
+        public bool IsAllowedAtRoot { get; set; }
+        public string Parent { get; set; }
+        public string[] Templates { get; set; }
+        public string DefaultTemplate { get; set; }
+        public List<Field> Fields { get; set; }
+    }
+
+    public class Field
+    {
+        public Field()
+        {
+            Name = "";
+            Alias = "";
+            Description = "";
+            Validation = "";
+            DataType = "";
+            Tab = "";
+        }
+
+        public string Tab { get; set; }
+        public string Name { get; set; }
+        public string Alias { get; set; }
+        public string Description { get; set; }
+        public bool IsMandatory { get; set; }
+        public string Validation { get; set; }
+        public string DataType { get; set; }
+    }
+#>
+
