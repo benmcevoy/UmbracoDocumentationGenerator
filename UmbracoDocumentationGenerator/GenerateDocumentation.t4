@@ -29,7 +29,11 @@
         {"474FCFF8-9D2D-11DE-ABC6-AD7A56D89593", "Macro container" },
         {"EC15C1E5-9D90-422A-AA52-4F7622C63BEA", "Single line text" },
         {"5E9B75AE-FACE-41C8-B47E-5F4B0FD82F83", "Rich text" },
-        {"67DB8357-EF57-493E-91AC-936D305E0F2A", "Multi line text"}
+        {"67DB8357-EF57-493E-91AC-936D305E0F2A", "Multi line text"},
+
+		{"UMBRACO.TRUEFALSE", "True/false" },
+		{"UMBRACO.TEXTBOX", "Single line text" },
+        {"UMBRACO.TINYMCEV3", "Rich text" }
     };
 
     public void Init(string basePath)
@@ -81,6 +85,7 @@
                 Name = SplitCamelCase(field.Element("Name").Value),
                 Alias = field.Element("Alias").Value,
                 Description = field.Element("Description").Value,
+				IsMandatory = GetMandatory(field),
                 Validation = field.Element("Validation").Value,
                 DataType = GetDataType(field),
                 Tab = field.Element("Tab").Value,
@@ -108,6 +113,12 @@
         return element.Value == "True";
     }
 
+	private bool GetMandatory(XElement field)
+    {
+        var element = field.Element("Mandatory");
+        return element.Value == "True";
+	}
+
     private string[] GetTemplates(XDocument docType)
     {
         var element = docType.XPathSelectElement("//DocumentType/Info/AllowedTemplates");
@@ -122,7 +133,7 @@
 
     private string SplitCamelCase(string value)
     {
-        return Regex.Replace(value, "(\\B[A-Z])", " $1");
+        return Regex.Replace(value, @"(\B[A-Z]+?(?=[A-Z][^A-Z])|\B[A-Z]+?(?=[^A-Z]))", " $1");
     }
 
     public class DocumentType
@@ -142,6 +153,10 @@
         {
             return string.Join(", ", Templates);
         }
+
+		public string AllowedAtRoot(){
+			return IsAllowedAtRoot ? "Yes" : "No";
+		}
 
         public string Name { get; set; }
         public string Alias { get; set; }
@@ -165,6 +180,10 @@
             Tab = "";
         }
 
+		public string Mandatory(){
+			return IsMandatory ? "Yes" : "No";
+		}
+
         public string Tab { get; set; }
         public string Name { get; set; }
         public string Alias { get; set; }
@@ -174,4 +193,3 @@
         public string DataType { get; set; }
     }
 #>
-
