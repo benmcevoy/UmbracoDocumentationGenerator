@@ -68,8 +68,21 @@
             DefaultTemplate = docType.XPathSelectElement("//DocumentType/Info/DefaultTemplate").Value,
             IsAllowedAtRoot = GetIsAllowedAtRoot(docType),
             Templates = GetTemplates(docType),
-            Fields = GetFields(docType)
+            Fields = GetFields(docType),
+			ChildDocumentTypes = GetChildDocumentTypes(docType)
         });
+    }
+
+	private string[] GetChildDocumentTypes(XDocument docType)
+    {
+        var element = docType.XPathSelectElement("//DocumentType/Structure");
+
+        if (!element.HasElements) return new string[] {};
+
+        return element
+                .Descendants("DocumentType")
+                .Select(template => template.Value)
+                .ToArray();
     }
 
     private List<Field> GetFields(XDocument docType)
@@ -141,6 +154,7 @@
         public DocumentType()
         {
             Templates = new string[] { }; 
+			ChildDocumentTypes = new string[] { }; 
             Fields = new List<Field>();
             Name = "";
             Alias = "";
@@ -154,6 +168,11 @@
             return string.Join(", ", Templates);
         }
 
+        public string GetChildDocumentTypes()
+        {
+            return String.Join(", ", ChildDocumentTypes);
+        }
+
 		public string AllowedAtRoot(){
 			return IsAllowedAtRoot ? "Yes" : "No";
 		}
@@ -164,6 +183,7 @@
         public bool IsAllowedAtRoot { get; set; }
         public string Parent { get; set; }
         public string[] Templates { get; set; }
+		public string[] ChildDocumentTypes { get; set; }
         public string DefaultTemplate { get; set; }
         public List<Field> Fields { get; set; }
     }

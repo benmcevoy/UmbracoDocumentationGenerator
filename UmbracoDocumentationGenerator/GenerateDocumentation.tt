@@ -35,6 +35,7 @@
 				<dt>Allow At Root:</dt><dd><#= documentType.IsAllowedAtRoot #>&nbsp;</dd>
 				<dt>Inherits from:</dt><dd><a href="#<#= documentType.Parent #>"><#= documentType.Parent #><a/>&nbsp;</dd>
 				<dt>Allowed Templates:</dt><dd><#= documentType.GetTemplates() #>&nbsp;</dd>
+				<dt>Allowed Children:</dt><dd><#= documentType.GetChildDocumentTypes() #>&nbsp;</dd>
 				<dt>Default Template:</dt><dd><#= documentType.DefaultTemplate #>&nbsp;</dd>
 			</dl>
 			<# if(documentType.Fields.Any()) { #>
